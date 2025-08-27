@@ -53,6 +53,7 @@
         function enviarForm(){
             let nome = document.getElementById(`nome`).value;
             let email = document.getElementById(`email`).value;
+            let dataNascimento = document.getElementById(`dataNascimento`).value
             let senha = document.getElementById(`senha`).value;
             let confirmarSenha = document.getElementById(`confirma-senha`).value;
             
@@ -70,6 +71,26 @@
             //     alert(`Senhas não batem!`);
             // }
             
+        }
+        if (nome.length < 2) {
+            document.getElementById('nome').classList.add('borda-erro')
+        }
+        console.log(dataNascimento);
+        if (!maiordeidade(dataNascimento)) {
+            alert("menor de idade")
+        }
+        function maiordeidade(data) {
+            if (!data) return false;
+
+            let hoje = new Date();
+            let nascimento = new Date(data);
+
+            let idade = hoje.getFullYear() - nascimento.getFullYear();
+            let mes = hoje.getFullYear() - nascimento.getMonth();
+            if(mes < 0 || mes === 0 && hoje.getDate() < nascimento.getDate()){
+                idade--;
+            }
+            return idade >=18;
         }
     </script>
 </body>
