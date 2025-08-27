@@ -7,7 +7,7 @@
     <title>Formulário</title>
     <style>
         label {
-            display:block;
+            display: block;
             margin-top: 10px;
         }
         #botao-enviar {
@@ -45,53 +45,83 @@
             <input type="password" name="confirma-senha" id="confirma-senha" required minlength="6" maxlength="20" placeholder="confirme sua senha">
         </div>
         <div>
-            <button name="botao-enviar" id="botao-enviar" type="button" onclick="enviarForm()">Enviar</button>
+            <label for="dataNascimento">Data de Nascimento</label>
+            <input type="date" name="dataNascimento" id="dataNascimento">
         </div>
-        <!-- comentarrioo -->
+        <button name="botao-enviar" id="botao-enviar" type="button" onclick="enviarForm()">Enviar</button>
     </form>
     <script>
-        function enviarForm(){
-            let nome = document.getElementById(`nome`).value;
-            let email = document.getElementById(`email`).value;
-            let dataNascimento = document.getElementById(`dataNascimento`).value
-            let senha = document.getElementById(`senha`).value;
-            let confirmarSenha = document.getElementById(`confirma-senha`).value;
-            
-            if(senha.length === 0) {
-                document.getElementById('senha').classList.add('borda-erro');
-            }
-            if (confirmarSenha.length === 0){
-                document.getElementById('confirma-senha').classList.add('borda-erro');
-            }
-            
-            // if (senha==confirmarSenha){
-            //     alert(`Formulário enviado com sucesso!`);
-            //     alert(`Nome: ${nome} / Email: ${email}`);
-            // } else {
-            //     alert(`Senhas não batem!`);
-            // }
-            
-        }
-        if (nome.length < 2) {
-            document.getElementById('nome').classList.add('borda-erro')
-        }
-        console.log(dataNascimento);
-        if (!maiordeidade(dataNascimento)) {
-            alert("menor de idade")
-        }
-        function maiordeidade(data) {
+        function maiorDeIdade(data) {
             if (!data) return false;
 
-            let hoje = new Date();
-            let nascimento = new Date(data);
-
+            const hoje = new Date();
+            const nascimento = new Date(data);
             let idade = hoje.getFullYear() - nascimento.getFullYear();
-            let mes = hoje.getFullYear() - nascimento.getMonth();
-            if(mes < 0 || mes === 0 && hoje.getDate() < nascimento.getDate()){
+            const mes = hoje.getMonth() - nascimento.getMonth();
+
+            if (mes < 0 || (mes === 0 && hoje.getDate() < nascimento.getDate())) {
                 idade--;
             }
-            return idade >=18;
+            return idade >= 18;
         }
+
+        function enviarForm() {
+
+            const nome = document.getElementById('nome');
+            const email = document.getElementById('email');
+            const dataNascimento = document.getElementById('dataNascimento');
+            const senha = document.getElementById('senha');
+            const confirmarSenha = document.getElementById('confirma-senha');
+
+            // Limpa as classes de erro antes de revalidar
+            nome.classList.remove('borda-erro');
+            dataNascimento.classList.remove('borda-erro');
+            senha.classList.remove('borda-erro');
+            confirmarSenha.classList.remove('borda-erro');
+
+            // Validações
+            if (nome.value.length < 2) {
+                nome.classList.add('borda-erro');
+                alert('O nome deve ter pelo menos 2 caracteres.');
+                return;
+            }
+
+            if (!maiorDeIdade(dataNascimento.value)) {
+                dataNascimento.classList.add('borda-erro');
+                alert('Você deve ser maior de 18 anos.');
+                return;
+            }
+
+            if (senha.value.length === 0) {
+                senha.classList.add('borda-erro');
+                alert('A senha não pode estar vazia.');
+                return;
+            }
+
+            if (confirmarSenha.value.length === 0) {
+                confirmarSenha.classList.add('borda-erro');
+                alert('A confirmação de senha não pode estar vazia.');
+                return;
+            }
+
+            if (senha.value !== confirmarSenha.value) {
+                senha.classList.add('borda-erro');
+                confirmarSenha.classList.add('borda-erro');
+                alert('As senhas não coincidem!');
+                return;
+            }
+            
+            alert(`Formulário enviado com sucesso!\nNome: ${nome.value}\nEmail: ${email.value}`);
+        }
+    let inputNome = document.getElementById('nome')
+    let inputEmail = document.getElementById('email')
+
+    inputNome.addEventListener('input', function(){})
+
+    inputEmail.addEventListener('input', function(){})
+
+    
     </script>
+
 </body>
 </html>
