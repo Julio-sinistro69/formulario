@@ -1,39 +1,17 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Formulário</title>
-    <style>
-        label {
-            display: block;
-            margin-top: 10px;
-        }
-        #botao-enviar {
-            margin-top: 15px;
-            background: rgb(12, 185, 12);
-            color: #ffffff;
-            border: none;
-            cursor: pointer;
-            padding: 10px;
-            border-radius: 5px;
-        }
-
-        .borda-erro {
-            border: 2px solid rgb(201, 39, 39);
-        }
-        input :not() radio{
-            width: 300px;
-        }
-        #radio-container{
-            display: flex;
-        }
-    </style>
+    <link href="style.css" rel="stylesheet" type="text/css"/>
+    <script defer src="script.js"></script>
 </head>
 <body>
-    <h2>Cadastro de Usuário</h2>
+    <main>
     <form action="" id="user-form" name="user-form">
+        <h2>Cadastro de Usuário</h2>
         <div>
             <label for="nome">Nome</label>
             <input type="text" name="nome" id="nome" placeholder="digite seu nome" required maxlength="50">
@@ -53,143 +31,80 @@
         <div>
             <label for="dataNascimento">Data de Nascimento</label>
             <input type="date" name="dataNascimento" id="dataNascimento">
-             </div>
-
-       <div>
-        <p>Selecione o idioma da página</p>
-        <label for="Português">Português</label>
-        <input type="radio" id="Português" name="Português" value="Português">
-
-        <label for="Inglês">Inglês</label>
-        <input type="radio" id="Inglês" name="Inglês" value="Inglês">
-
-        <label for="Espanhol">Espanhol</label>
-        <input type="radio" id="javascript" name="fav_language" value="JavaScript">
-        
-        <br>  
         </div>
+
+        <div>
+            <p>Selecione o idioma da página</p>
+            <label for="portugues">Português</label>
+            <input type="radio" id="portugues" name="idioma" value="portugues">
+            
+            <label for="ingles">Inglês</label>
+            <input type="radio" id="ingles" name="idioma" value="ingles">
+
+            <label for="espanhol">Espanhol</label>
+            <input type="radio" id="espanhol" name="idioma" value="espanhol">
+        </div>
+
         <div>
             <label for="estados">Selecione o estado:</label>
             <select name="estados" id="estados">
-            <option value=""></option>
-            <option value="(AC)">Acre</option>
-            <option value="(AL)">Alagoas</option>
-            <option value="(AP)">Amapá</option>
-            <option value="(AM)">Amazonas</option>
-            <option value="(BA)">Bahia</option>
-            <option value="(CE)">Ceará</option>
-            <option value="(ES)">Espírito Santo</option>
-            <option value="(GO)">Goiás</option>
-            <option value="(MA)">Maranhão</option>
-            <option value="(MT)">Mato Grosso</option>
-            <option value="(MS)">Mato Grosso do Sul</option>
-            <option value="(MG)">Minas Gerais</option>
-            <option value="(PA)">Pará</option>
-            <option value="(PB)">Paraíba</option>
-            <option value="(PR)">Paraná</option>
-            <option value="(PE)">Pernambuco</option>
-            <option value="(PI)">Piauí</option>
-            <option value="(RJ)">Rio de Janeiro</option>
-            <option value="(RN)">Rio Grande do Norte</option>
-            <option value="(RS)">Rio Grande do Sul</option>
-            <option value="(RO)">Rondônia</option>
-            <option value="(RR)">Roraima</option>
-            <option value="(SC)">Santa Catarina</option>
-            <option value="(SP)">São Paulo</option>
-            <option value="(SE)">Sergipe</option>
-            <option value="(TO)">Tocantins</option>
-
+                <option value=""></option>
+                <option value="(AC)">Acre</option>
+                <option value="(AL)">Alagoas</option>
+                <option value="(AP)">Amapá</option>
+                <option value="(AM)">Amazonas</option>
+                <option value="(BA)">Bahia</option>
+                <option value="(CE)">Ceará</option>
+                <option value="(ES)">Espírito Santo</option>
+                <option value="(GO)">Goiás</option>
+                <option value="(MA)">Maranhão</option>
+                <option value="(MT)">Mato Grosso</option>
+                <option value="(MS)">Mato Grosso do Sul</option>
+                <option value="(MG)">Minas Gerais</option>
+                <option value="(PA)">Pará</option>
+                <option value="(PB)">Paraíba</option>
+                <option value="(PR)">Paraná</option>
+                <option value="(PE)">Pernambuco</option>
+                <option value="(PI)">Piauí</option>
+                <option value="(RJ)">Rio de Janeiro</option>
+                <option value="(RN)">Rio Grande do Norte</option>
+                <option value="(RS)">Rio Grande do Sul</option>
+                <option value="(RO)">Rondônia</option>
+                <option value="(RR)">Roraima</option>
+                <option value="(SC)">Santa Catarina</option>
+                <option value="(SP)">São Paulo</option>
+                <option value="(SE)">Sergipe</option>
+                <option value="(TO)">Tocantins</option>
             </select>
         </div>
-        <div><label for="idade"></label>idade
-        <input type="number" id="quantity" name="quantity" min="1" max="140"></div>
+
         <div>
-            Quais idiomas você fala?
-            <label>Português</label>
-            <input type="checkbox" id="Português" name="Português" value="Português">
-             <label>Inglês</label>
-            <input type="checkbox" id="Inglês" name="Inglês" value="Inglês">
-            <label>Espanhol</label>
-            <input type="checkbox" id="Espanhol" name="Espanhol" value="Espanhol">
-            <label>outro</label>
-            <input type="checkbox" id="outro" name="outro" value="outro">
+            <label for="idade">Idade</label>
+            <input type="number" id="idade" name="idade" min="1" max="140">
+        </div>
+
+        <div>
+            <p>Quais idiomas você fala?</p>
+            <label for="portugues">Português</label>
+            <input type="checkbox" id="portugues-checkbox" name="lingua" value="Português">
+            
+            <label for="ingles">Inglês</label>
+            <input type="checkbox" id="ingles-checkbox" name="lingua" value="Inglês">
+            
+            <label for="espanhol">Espanhol</label>
+            <input type="checkbox" id="espanhol-checkbox" name="lingua" value="Espanhol">
+            
+            <label for="outro">Outro</label>
+            <input type="checkbox" id="outro-checkbox" name="lingua" value="Outro" onclick="mostrarOutro()">
+        </div>
+
+        <div id="outro-idioma" style="display: none;">
+            <label for="outro">Qual idioma?</label>
+            <input type="text" id="outro" name="outro">
         </div>
 
         <button name="botao-enviar" id="botao-enviar" type="button" onclick="enviarForm()">Enviar</button>
-           
     </form>
-    <script>
-        function maiorDeIdade(data) {
-            if (!data) return false;
-
-            const hoje = new Date();
-            const nascimento = new Date(data);
-            let idade = hoje.getFullYear() - nascimento.getFullYear();
-            const mes = hoje.getMonth() - nascimento.getMonth();
-
-            if (mes < 0 || (mes === 0 && hoje.getDate() < nascimento.getDate())) {
-                idade--;
-            }
-            return idade >= 18;
-        }
-
-        function enviarForm() {
-
-            const nome = document.getElementById('nome');
-            const email = document.getElementById('email');
-            const dataNascimento = document.getElementById('dataNascimento');
-            const senha = document.getElementById('senha');
-            const confirmarSenha = document.getElementById('confirma-senha');
-
-            // Limpa as classes de erro antes de revalidar
-            nome.classList.remove('borda-erro');
-            dataNascimento.classList.remove('borda-erro');
-            senha.classList.remove('borda-erro');
-            confirmarSenha.classList.remove('borda-erro');
-
-            // Validações
-            if (nome.value.length < 2) {
-                nome.classList.add('borda-erro');
-                alert('O nome deve ter pelo menos 2 caracteres.');
-                return;
-            }
-
-            if (!maiorDeIdade(dataNascimento.value)) {
-                dataNascimento.classList.add('borda-erro');
-                alert('Você deve ser maior de 18 anos.');
-                return;
-            }
-
-            if (senha.value.length === 0) {
-                senha.classList.add('borda-erro');
-                alert('A senha não pode estar vazia.');
-                return;
-            }
-
-            if (confirmarSenha.value.length === 0) {
-                confirmarSenha.classList.add('borda-erro');
-                alert('A confirmação de senha não pode estar vazia.');
-                return;
-            }
-
-            if (senha.value !== confirmarSenha.value) {
-                senha.classList.add('borda-erro');
-                confirmarSenha.classList.add('borda-erro');
-                alert('As senhas não coincidem!');
-                return;
-            }
-            
-            alert(`Formulário enviado com sucesso!\nNome: ${nome.value}\nEmail: ${email.value}`);
-        }
-    let inputNome = document.getElementById('nome')
-    let inputEmail = document.getElementById('email')
-
-    inputNome.addEventListener('input', function(){})
-
-    inputEmail.addEventListener('input', function(){})
-
-
-    </script>
-
+    </main>
 </body>
 </html>
